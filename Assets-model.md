@@ -50,7 +50,7 @@ IARL    |  ???  |  ???   |  ??? |  ???   |
 
  * AML will need custom thumb/fanart for the several menus like: Parent machines,
    browse by year, etc., very similar to AEL Virtual Launchers and Favourite category.
-   
+
  * AML will use MAME artwork when displaying Software List machines.
 
  * RetroPie and Emulation Station have very nice collections of logos for most console systems.
@@ -70,10 +70,11 @@ IARL    |  ???  |  ???   |  ??? |  ???   |
 [GiantBomb]       |  <3>  | <3>  |  <3>   |   <3>  |   YES    |   <3>   |    <3>    |  NO   | NO  |  NO    | YouTube |
 
   * `Banner` is a horizontal image with name of ROM/system. It is called `Wheel` in Hyperspin and `Logo` in HL.
- 
-    Also, HL has both `Logo` (`Wheel`) and `Banner`. I do not know the distinction between them. Also, no idea about
-    what is HL `Clearart`.
- 
+     
+     Also, HL has both `Logo`/`Wheel` and `Banner` in separated directories. I do not know the difference between them. 
+     
+     No idea about what is HL `Clearart`.
+
   * `Flyer` is a vertical image. It is called `Poster` in HL.
 
   * EmuMovies/HyperSpin Media provide 2D and 3D version of `Boxfront` and `Cartridges`.
@@ -84,14 +85,14 @@ IARL    |  ???  |  ???   |  ??? |  ???   |
   * <2> TheGamesDB/GameFAQs/MobyGames do not differentiate between `Title`/`Snap`. They just have screenshots.
 
   * GameFAQs have gamebox `Spine`, which can be considered a kind of `Banner`.
-  
+
   * <3> GiantBomb has quite a lot of artwork. However, everything is mixed (`Title`, `Snaps`, `Fanart`, all showing
     on the same page) and makes it difficult to scrape. `Boxfront` is easy to scrape from GiantBomb.
-  
+
   * RetroPie and Emulation Station users have nice No-Intro artwork collections including `Title`, `Snap` and `Boxfront`.
 
 [EmuMovies]: http://emumovies.com/
-[Hyperspin]: http://www.hyperspin-fe.com/files/category/2-hyperspin-media/
+[HyperSpin Media]: http://www.hyperspin-fe.com/files/category/2-hyperspin-media/
 [No-Intro]: http://no-intro.dlgsoftware.net
 [Retroarch]: https://github.com/libretro/libretro-thumbnails/
 [TheGamesDB]: http://thegamesdb.net/
@@ -102,10 +103,10 @@ IARL    |  ???  |  ???   |  ??? |  ???   |
 
 ### MAME machine/Arcade Artwork ###
 
- Artwork site   |  Snap | Title | Preview | Boss | End | GameOver | HowTo | Logo | Scores | Select | Versus | Cabinet | CPanel | Flyers | Icon | Marquee | PCB | Manual | Trailer |
-----------------|-------|-------|---------|------|-----|----------|-------|------|--------|--------|--------|---------|--------|--------|------|---------|-----|--------|---------|
-[Pleasuredome]  |  YES  | YES   | YES     | YES  | YES |    YES   |  YES  | YES  |  YES   |  YES   |  YES   |  YES    |  YES   |  YES   | YES  |   YES   | YES |  YES   |  YES    |
-[ProgrettoEmma] |  YES  | YES   | YES     | YES  | YES |    YES   |  YES  | YES  |  YES   |  YES   |  YES   |  YES    |  YES   |  YES   | YES  |   YES   | YES |  YES   |  YES    |
+ Artwork site     |  Snap | Title | Preview | Boss | End | GameOver | HowTo | Logo | Scores | Select | Versus | Cabinet | CPanel | Flyers | Icon | Marquee | PCB | Manual | Trailer |
+------------------|-------|-------|---------|------|-----|----------|-------|------|--------|--------|--------|---------|--------|--------|------|---------|-----|--------|---------|
+[Pleasuredome]    |  YES  | YES   | YES     | YES  | YES |    YES   |  YES  | YES  |  YES   |  YES   |  YES   |  YES    |  YES   |  YES   | YES  |   YES   | YES |  YES   |  YES    |
+[ProgrrettoSNAPS] |  YES  | YES   | YES     | YES  | YES |    YES   |  YES  | YES  |  YES   |  YES   |  YES   |  YES    |  YES   |  YES   | YES  |   YES   | YES |  YES   |  YES    |
  
 
 ### Software Lists Artwork ###
