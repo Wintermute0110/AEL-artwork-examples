@@ -117,7 +117,7 @@ IARL    |  ???  |  ???   |  ??? |  ???   |
 [ProgrrettoSNAPS] |  YES   | YES  | NO     | NO     |   YES    |   NO     |  YES   | YES     |
 
 
- * Many consoles/computers have artwork sames as arcade. For MAME, both arcade and consoles/computers are
+ * Many consoles/computers have the same artwork as arcade. For MAME, both arcade and consoles/computers are
    just "machines". For example, CPanel of MegaDrive is the SEGA 3 button joystick.
 
 [Pleasuredome]: http://www.pleasuredome.org.uk/
