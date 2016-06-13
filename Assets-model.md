@@ -43,7 +43,7 @@ Software Lists |  YES  |  YES | YES   |  YES   | YES  |   YES    |
  Plugin | Thumb | Fanart | Logo | Poster |
 --------|-------|--------|------|--------|
 AL      |  YES  |  YES   |  NO  |  NO    |
-AEL     |  YES  |  YES   |  NO  |  NO    |
+AEL     |  YES  |  YES   |  YES |  YES   |
 AML     |  ***  |  ***   |  *** |  ***   |
 HL      |  YES  |  YES   |  YES |  YES   |
 IARL    |  ???  |  ???   |  ??? |  ???   |
