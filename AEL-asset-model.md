@@ -6,9 +6,12 @@
 
  * Look in [Pydocs_setProperty] for valid setProperty() infoLabels.
  
+ * Look in [Kodi_wiki_artwork] for supported Kodi artwork.
+ 
 [Pydocs_setInfo]: http://mirrors.xbmc.org/docs/python-docs/16.x-jarvis/xbmcgui.html#ListItem-setInfo
 [Pydocs_setArt]: http://mirrors.xbmc.org/docs/python-docs/16.x-jarvis/xbmcgui.html#ListItem-setArt
 [Pydocs_setProperty]: http://mirrors.xbmc.org/docs/python-docs/16.x-jarvis/xbmcgui.html#ListItem-setProperty
+[Kodi_wiki_artwork]: http://kodi.wiki/view/InfoLabels#Images_Available_in_Kodi
 
 
 ## Category metadata labels ##
@@ -29,31 +32,33 @@
  
  Asset name | AEL name  | setArt label | setInfo label |
 ------------|-----------|--------------|---------------|
- Thumb      | s_thumb   | icon         |               |
+ Thumb      | s_thumb   | thumb        |               |
  Fanart     | s_fanart  | fanart       |               |
- Logo       | s_logo    | logo         |               |
- Poster     | s_poster  | poster       |               |
+ Banner     | s_banner  | banner       |               |
+ Flyer      | s_flyer   | poster       |               |
  Trailer    | s_trailer |              | trailer       |
 
- * `icon` = `DefaultFolder.png` is the defaul for categories. If user configured `s_thumb`, then
-   `s_thumb` is used with label `icon`
+ * `thumb` = `DefaultFolder.png` is the default for categories. If user configured `s_thumb`, then
+   `s_thumb` is used with label `thumb`.
 
- * Trailer is an asset, however label is set with setInfo() instead of setArt()
+ * Trailer is an asset, however label is set with setInfo() instead of setArt().
+
+ * Do not set any artwork in the ListItem constructor, only with setArt().
 
 
 ## Launcher metadata labels ##
 
- Metadata name | AEL name  | setInfo label | Type                 |
----------------|-----------|---------------|----------------------|
- Title         | m_name    | title         | string               |
- Year          | m_year    | year          | string               |
- Genre         | m_genre   | genre         | string               |
- Plot          | m_plot    | plot          | string               |
- Studio        | m_studio  | studio        | string               |
- Rating        | m_rating  | rating        | string range 0 to 10 |
- Platform      | platform  | writer        | string               |
- Trailer       | s_trailer | trailer       | string               |
-               |           | overlay       | int range 0 to 8     |
+ Metadata name | AEL name  | setInfo | setProperty | Type                 |
+---------------|-----------|---------|-------------|----------------------|
+ Title         | m_name    | title   |             | string               |
+ Year          | m_year    | year    |             | string               |
+ Genre         | m_genre   | genre   |             | string               |
+ Plot          | m_plot    | plot    |             | string               |
+ Studio        | m_studio  | studio  |             | string               |
+ Rating        | m_rating  | rating  |             | string range 0 to 10 |
+ Platform      | platform  |         | platform    | string               |
+ Trailer       | s_trailer | trailer |             | string               |
+               |           | overlay |             | int range 0 to 8     |
 
  * setInfo first argument is `video`. 
  
@@ -70,37 +75,35 @@
  
  Asset name | AEL name  | setArt label | setInfo label |
 ------------|-----------|--------------|---------------|
-            |           | icon         |               |
  Thumb      | s_thumb   | thumb        |               |
  Fanart     | s_fanart  | fanart       |               |
- Logo       | s_logo    | logo         |               |
- Poster     | s_poster  | poster       |               |
+ Banner     | s_banner  | banner       |               |
+ Flyer      | s_flyer   | poster       |               |
  Trailer    | s_trailer |              | trailer       |
 
- * Launcher implementation is slightly different from Categories. `icon` label is set to
-   `DefaultProgram.png` or `DefaultFolder.png`. Then, if user configured s_thumb then s_thumb is
-   set with label `thumb`.
+ * `thumb` label is set to `DefaultProgram.png` or `DefaultFolder.png`. Then, if user configured 
+   `s_thumb` then `s_thumb` is set with label `thumb`.
 
  * Trailer is an asset, however label is set with setInfo() instead of setArt()
 
 
 ## ROMs metadata labels ##
 
- Metadata name | AEL name  | setInfo label | Type                 |
----------------|-----------|---------------|----------------------|
- Title         | m_name    | title         | string               |
- Year          | m_year    | year          | string               |
- Genre         | m_genre   | genre         | string               |
- Plot          | m_plot    | plot          | string               |
- Studio        | m_studio  | studio        | string               |
- Rating        | m_rating  | rating        | string range 0 to 10 |
- Platform      | platform  | writer        | string               |
- Trailer       | s_trailer | trailer       | string               |
-               |           | overlay       | int range 0 to 8     |
+ Metadata name | AEL name  | setInfo | setProperty | Type                 |
+---------------|-----------|---------|-------------|----------------------|
+ Title         | m_name    | title   |             | string               |
+ Year          | m_year    | year    |             | string               |
+ Genre         | m_genre   | genre   |             | string               |
+ Plot          | m_plot    | plot    |             | string               |
+ Studio        | m_studio  | studio  |             | string               |
+ Rating        | m_rating  | rating  |             | string range 0 to 10 |
+ Platform      | platform  |         | platform    | string               |
+ Trailer       | s_trailer | trailer |             | string               |
+               |           | overlay |             | int range 0 to 8     |
 
  * setInfo first argument is `video`. 
 
- * Platform is a launcher property, not a ROM property.
+ * Platform is a launcher property, not a ROM property. Also, setProperty is used instead of setInfo.
 
  * Year and Rating are integers according to Kodi Pydocs. However, they are stored as string. 
    If Year and Rating are not set they are the empty strings, which is different from integer 0. 
@@ -111,33 +114,44 @@
  
  Asset name | AEL name    | setArt label | setInfo label | MAME mapping for MAME views |
 ------------|-------------|--------------|---------------|-----------------------------|
-            |             | icon         |               |                             |
- Title      | s_title     | thumb        |               | title                       |
- Snap       | s_snap      | fanart       |               | snap                        |
- Fanart     | s_fanart    | logo         |               | fanart                      |
- Banner     | s_banner    | poster       |               | marquee                     |
+ Title      | s_title     | title/thumb  |               | title                       |
+ Snap       | s_snap      | snap         |               | snap                        |
+ Fanart     | s_fanart    | fanart       |               | fanart                      |
+ Banner     | s_banner    | banner       |               | marquee                     |
  Boxfront   | s_boxfront  | boxfront     |               | cabinet                     |
  Boxback    | s_boxback   | boxback      |               | cpanel                      |
  Cartridge  | s_cartridge | cartridge    |               | pcb                         |
- Flyer      | s_flyer     | flyer        |               | flyer                       |
+ Flyer      | s_flyer     | poster       |               | flyer                       |
  Map        | s_map       | map          |               |                             |
  Manual     | s_manual    |              |               | manual                      |
- Trailer    | s_trailer   |              | Trailer       | trailer                     |
+ Trailer    | s_trailer   |              | trailer       | trailer                     |
 
- * ROM implementation: `icon` label is set to `DefaultProgram.png`. Then, if user configured 
-   s_title then s_title is set with label `thumb`.
+ * `thumb` label is set to `DefaultProgram.png`. Then, if user configured `s_title` then `s_title` 
+   is set with label `thumb`. In any case, `title` is always set to `s_title`.
 
- * Trailer is an asset, however label is set with setInfo() instead of setArt()
+ * For Confluence/Estuary, user will be able to configure what artwork will be set as `thumb`
+   and `fanart`. 
+   
+ * If some artwork is missing, AEL will set `thumb` according to the following
+   priority list: 
+
+   configured_thumb, `s_title`, `s_boxfront`, `s_boxback`, `s_cartridge`. 
+
+   For `fanart` the priority list is: 
+
+   configured_fanart, `s_fanart`, `s_snap`, `s_flyer`.
+
+   * Trailer is an asset, however label is set with setInfo() instead of setArt()
 
 
 ## Launchers/Categories artwork supported by plugins ##
 
- Plugin | Thumb | Fanart | Logo | Poster | Trailer |
---------|-------|--------|------|--------|---------|
-AL      |  YES  |  YES   |  NO  |  NO    | NO      |
-AEL     |  YES  |  YES   |  YES |  YES   | YES     |
-HL      |  YES  |  YES   |  YES |  YES   | ???     |
-IARL    |  ???  |  ???   |  ??? |  ???   | ???     |
+ Plugin | Thumb | Fanart | Banner | Poster | Trailer |
+--------|-------|--------|--------|--------|---------|
+AL      |  YES  |  YES   |  NO    |  NO    | NO      |
+AEL     |  YES  |  YES   |  YES   |  YES   | YES     |
+HL      |  YES  |  YES   |  YES   |  YES   | ???     |
+IARL    |  ???  |  ???   |  ???   |  ???   | ???     |
 
 
 ## Console ROMs asset availability ##
