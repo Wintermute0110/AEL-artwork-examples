@@ -56,8 +56,8 @@
  Plot          | m_plot    | plot    |             | string               |
  Studio        | m_studio  | studio  |             | string               |
  Rating        | m_rating  | rating  |             | string range 0 to 10 |
- Platform      | platform  |         | platform    | string               |
  Trailer       | s_trailer | trailer |             | string               |
+ Platform      | platform  |         | platform    | string               |
                |           | overlay |             | int range 0 to 8     |
 
  * setInfo first argument is `video`. 
@@ -97,8 +97,8 @@
  Plot          | m_plot    | plot    |             | string               |
  Studio        | m_studio  | studio  |             | string               |
  Rating        | m_rating  | rating  |             | string range 0 to 10 |
- Platform      | platform  |         | platform    | string               |
  Trailer       | s_trailer | trailer |             | string               |
+ Platform      | platform  |         | platform    | string               |
                |           | overlay |             | int range 0 to 8     |
 
  * setInfo first argument is `video`. 
@@ -118,6 +118,7 @@
  Snap       | s_snap      | snap         |               | snap                        |
  Fanart     | s_fanart    | fanart       |               | fanart                      |
  Banner     | s_banner    | banner       |               | marquee                     |
+ Clearlogo  | s_clearlogo | clearlogo    |               |                             |
  Boxfront   | s_boxfront  | boxfront     |               | cabinet                     |
  Boxback    | s_boxback   | boxback      |               | cpanel                      |
  Cartridge  | s_cartridge | cartridge    |               | pcb                         |
