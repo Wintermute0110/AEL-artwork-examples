@@ -30,21 +30,23 @@
 
 ## Categories asset labels ##
  
- Asset name | AEL name  | setArt label | setInfo label |
-------------|-----------|--------------|---------------|
- Thumb      | s_thumb   | thumb        |               |
- Fanart     | s_fanart  | fanart       |               |
- Banner     | s_banner  | banner       |               |
- Flyer      | s_flyer   | poster       |               |
- Trailer    | s_trailer |              | trailer       |
+ Asset name  | AEL name    | setArt label | setInfo label |
+-------------|-------------|--------------|---------------|
+ Thumb       | s_thumb     | thumb        |               |
+ Fanart      | s_fanart    | fanart       |               |
+ Banner      | s_banner    | banner       |               |
+ Flyer       | s_flyer     | poster       |               |
+ Trailer     | s_trailer   |              | trailer       |
+ Extrafanart | extrafanart | extrafanart1 |               |
+ Extrafanart | extrafanart | extrafanart2 |               |
 
- * `thumb` = `DefaultFolder.png` is the default for categories. If user configured `s_thumb`, then
-   `s_thumb` is used with label `thumb`.
+ * `thumb` = `DefaultFolder.png` is the default for categories.
 
- * Trailer is an asset, however label is set with setInfo() instead of setArt().
+ * Trailer is an asset, however label is set with `setInfo()` instead of `setArt()`.
 
  * Do not set any artwork in the ListItem constructor, only with setArt().
 
+ * `extrafanart` is a Python list.
 
 ## Launcher metadata labels ##
 
@@ -60,7 +62,7 @@
  Platform      | platform  |         | platform    | string               |
                |           | overlay |             | int range 0 to 8     |
 
- * setInfo first argument is `video`. 
+ * `setInfo()` first argument is `video`. 
  
  * AEL platform uses an internal "official" list for the scrapers to work properly. 
    Platform is never read from NFO files. Also, AEL platform is a Launcher property, 
@@ -73,19 +75,21 @@
 
 ## Launchers asset labels ##
  
- Asset name | AEL name  | setArt label | setInfo label |
-------------|-----------|--------------|---------------|
- Thumb      | s_thumb   | thumb        |               |
- Fanart     | s_fanart  | fanart       |               |
- Banner     | s_banner  | banner       |               |
- Flyer      | s_flyer   | poster       |               |
- Trailer    | s_trailer |              | trailer       |
+ Asset name  | AEL name    | setArt label | setInfo label |
+-------------|-------------|--------------|---------------|
+ Thumb       | s_thumb     | thumb        |               |
+ Fanart      | s_fanart    | fanart       |               |
+ Banner      | s_banner    | banner       |               |
+ Flyer       | s_flyer     | poster       |               |
+ Trailer     | s_trailer   |              | trailer       |
+ Extrafanart | extrafanart | extrafanart1 |               |
+ Extrafanart | extrafanart | extrafanart2 |               |
 
- * `thumb` label is set to `DefaultProgram.png` or `DefaultFolder.png`. Then, if user configured 
-   `s_thumb` then `s_thumb` is set with label `thumb`.
+ * `thumb` label is set to `DefaultProgram.png` or `DefaultFolder.png`.
 
- * Trailer is an asset, however label is set with setInfo() instead of setArt()
+ * Trailer is an asset, however label is set with `setInfo()` instead of `setArt()`.
 
+ * `extrafanart` is a Python list.
 
 ## ROMs metadata labels ##
 
@@ -103,7 +107,8 @@
 
  * setInfo first argument is `video`. 
 
- * Platform is a launcher property, not a ROM property. Also, setProperty is used instead of setInfo.
+ * Platform is a launcher property, not a ROM property. Also, `setProperty()` is used instead 
+   of `setInfo()`.
 
  * Year and Rating are integers according to Kodi Pydocs. However, they are stored as string. 
    If Year and Rating are not set they are the empty strings, which is different from integer 0. 
@@ -112,38 +117,31 @@
 
 ## ROMs asset labels ##
  
- Asset name | AEL name    | setArt label | setInfo label | MAME mapping for MAME views |
-------------|-------------|--------------|---------------|-----------------------------|
- Title      | s_title     | title/thumb  |               | title                       |
- Snap       | s_snap      | snap         |               | snap                        |
- Fanart     | s_fanart    | fanart       |               | fanart                      |
- Banner     | s_banner    | banner       |               | marquee                     |
- Clearlogo  | s_clearlogo | clearlogo    |               |                             |
- Boxfront   | s_boxfront  | boxfront     |               | cabinet                     |
- Boxback    | s_boxback   | boxback      |               | cpanel                      |
- Cartridge  | s_cartridge | cartridge    |               | pcb                         |
- Flyer      | s_flyer     | poster       |               | flyer                       |
- Map        | s_map       | map          |               |                             |
- Manual     | s_manual    |              |               | manual                      |
- Trailer    | s_trailer   |              | trailer       | trailer                     |
-
- * `thumb` label is set to `DefaultProgram.png`. Then, if user configured `s_title` then `s_title` 
-   is set with label `thumb`. In any case, `title` is always set to `s_title`.
+ Asset name  | AEL name    | setArt label | setInfo label | MAME mapping for MAME views |
+-------------|-------------|--------------|---------------|-----------------------------|
+ Title       | s_title     | title/thumb  |               | title                       |
+ Snap        | s_snap      | snap         |               | snap                        |
+ Fanart      | s_fanart    | fanart       |               | fanart                      |
+ Banner      | s_banner    | banner       |               | marquee                     |
+ Clearlogo   | s_clearlogo | clearlogo    |               | clearlogo                   |
+ Boxfront    | s_boxfront  | boxfront     |               | cabinet                     |
+ Boxback     | s_boxback   | boxback      |               | cpanel                      |
+ Cartridge   | s_cartridge | cartridge    |               | pcb                         |
+ Flyer       | s_flyer     | poster       |               | flyer                       |
+ Map         | s_map       | map          |               |                             |
+ Manual      | s_manual    |              |               | manual                      |
+ Trailer     | s_trailer   |              | trailer       | trailer                     |
+ Extrafanart | extrafanart | extrafanart1 |               | extrafanart                 |
+ Extrafanart | extrafanart | extrafanart2 |               | extrafanart                 |
+ 
+ * `thumb` label is set to `DefaultProgram.png`.
 
  * For Confluence/Estuary, user will be able to configure what artwork will be set as `thumb`
    and `fanart`. 
-   
- * If some artwork is missing, AEL will set `thumb` according to the following
-   priority list: 
 
-   configured_thumb, `s_title`, `s_boxfront`, `s_boxback`, `s_cartridge`. 
+ * Trailer is an asset, however label is set with setInfo() instead of setArt()
 
-   For `fanart` the priority list is: 
-
-   configured_fanart, `s_fanart`, `s_snap`, `s_flyer`.
-
-   * Trailer is an asset, however label is set with setInfo() instead of setArt()
-
+ * `extrafanart` is a Python list.
 
 ## Launchers/Categories artwork supported by plugins ##
 
@@ -209,50 +207,50 @@ IARL    |  ???  |  ???   |  ???   |  ???   | ???     |
  * To deal with Confluence (default) skin, user will be able to choose which artwork to 
    display as thumb/fanart. For example: thumb -> Boxfront, fanart -> Fanart.
 
- * No more separated thumb/fanart scrapers. Thumb/fanart scrapers will be unified into artwork scrapers.
-   Artwork scrapers will download all possible Artwork depending on site availabililty.
+ * No more separated thumb/fanart scrapers. Thumb/fanart scrapers will be unified into artwork 
+   scrapers. Artwork scrapers will download all possible Artwork depending on site availabililty.
 
-### Scheme 1: Separated directory artwork ###
+### ROM artwork storage ###
 
- 1. Launcher name `SNES (Retroarch bsnes balanced)`
- 2. Launcher and artwork in SEPARATED DIRECTORIES
- 3. **This is the recommended layout**.
+ 1. Asset directory may be the same as the ROMs directory.
 
 ```
-ROMs directory           ~/ROMs/SNES/Super Mario World (Europe).zip
-Artwork directory        ~/Artwork/SNES/
-created automatically -> ~/Artwork/SNES/titles/Super Mario World (Europe).png
-                         ~/Artwork/SNES/snaps/Super Mario World (Europe).png
-                         ~/Artwork/SNES/fanarts/Super Mario World (Europe).png
-                         ~/Artwork/SNES/banners/Super Mario World (Europe).png
-                         ~/Artwork/SNES/boxfronts/Super Mario World (Europe).png
-                         ~/Artwork/SNES/boxbacks/Super Mario World (Europe).png
-                         ~/Artwork/SNES/cartridges/Super Mario World (Europe).png
-                         ~/Artwork/SNES/flyers/Super Mario World (Europe).png
-                         ~/Artwork/SNES/maps/Super Mario World (Europe).png
-                         ~/Artwork/SNES/manuals/Super Mario World (Europe).pdf
-                         ~/Artwork/SNES/trailers/Super Mario World (Europe).mpeg
+ROMs directory         ~/ROMs/SNES/Super Mario World (Europe).zip
+Artwork directory      ~/Artwork/SNES/
+Created automatically  ~/Artwork/SNES/titles/Super Mario World (Europe).png
+                       ~/Artwork/SNES/snaps/Super Mario World (Europe).png
+                       ~/Artwork/SNES/fanarts/Super Mario World (Europe).png
+                       ~/Artwork/SNES/banners/Super Mario World (Europe).png
+                       ~/Artwork/SNES/boxfronts/Super Mario World (Europe).png
+                       ~/Artwork/SNES/boxbacks/Super Mario World (Europe).png
+                       ~/Artwork/SNES/cartridges/Super Mario World (Europe).png
+                       ~/Artwork/SNES/flyers/Super Mario World (Europe).png
+                       ~/Artwork/SNES/maps/Super Mario World (Europe).png
+                       ~/Artwork/SNES/manuals/Super Mario World (Europe).pdf
+                       ~/Artwork/SNES/trailers/Super Mario World (Europe).mpeg
+                       ~/Artwork/SNES/extrafanart/Super Mario World (Europe)/fanart1.png
+                       ~/Artwork/SNES/extrafanart/Super Mario World (Europe)/fanart2.png
+                       ~/Artwork/SNES/extrafanart/Super Mario World (Europe)/fanart3.png
 ```
 
-### Scheme 2: ROMs and assets same directory ###
+### Launcher/Category artwork storage ###
 
- 1. Launcher name `SNES (Retroarch bsnes balanced)`
- 2. Launcher and artwork in SAME directory
- 3. **This layout is not recommended** (although some people seems to like it).
+ 1. Category name `SEGA`. Each category will have a subdirectory with same name to store
+    extrafanart.
+
+ 2. Launcher name `SNES (Retroarch bsnes balanced)`. Each launcher will have a subdirectory to
+    store extrafanart.
 
 ```
-ROMs directory           ~/ROMs/SNES/Super Mario World (Europe).zip
-                         ~/ROMs/SNES/Super Mario World (Europe)_title.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_snap.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_fanart.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_banner.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_boxfront.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_boxback.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_cartridge.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_flyer.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_map.png
-                         ~/ROMs/SNES/Super Mario World (Europe)_manual.pdf
-                         ~/ROMs/SNES/Super Mario World (Europe)_trailer.mpeg
+Artwork directory  ADDON_DATA_DIR/asset-categories/
+                   ADDON_DATA_DIR/asset-categories/SEGA/fanart1.png
+                   ADDON_DATA_DIR/asset-categories/SEGA/fanart2.png
+                   ADDON_DATA_DIR/asset-categories/SEGA/fanart3.png
+
+Artwork directory  ADDON_DATA_DIR/asset-launchers/
+                   ADDON_DATA_DIR/asset-launchers/SNES (Retroarch bsnes balanced)/fanart1.png
+                   ADDON_DATA_DIR/asset-launchers/SNES (Retroarch bsnes balanced)/fanart2.png
+                   ADDON_DATA_DIR/asset-launchers/SNES (Retroarch bsnes balanced)/fanart3.png
 ```
 
 ## Importing AL stuff into AEL ##
